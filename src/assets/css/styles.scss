@@ -1,0 +1,482 @@
+$rollover: #A1887F;
+$lightBrown: lighten($rollover, 25%);
+$darkGrey: darken(grey, 25%);
+
+$small: 820px;
+
+
+@mixin smallview {
+  @media (max-width: #{$small}){
+    @content;
+  }
+}
+
+html{
+  font-family: 'Roboto', sans-serif !important;
+  scroll-behavior: smooth;
+
+  a {
+    cursor: pointer;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    &:hover{
+      color: $rollover !important;
+    }
+  }
+  a:hover .material-icons{
+    color: $rollover !important;
+  }
+  a.router-link-active{
+    color:yellow !important;
+    &:hover{
+      color: yellow !important;
+    }
+  }
+  a.router-link-exact-active{
+    color: yellow !important;
+    &:hover{
+      color:yellow !important;
+    }
+  }
+  .v-parallax{
+    height: 400px !important;
+  }
+
+  /* transiton menu for mobile*/
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  @include smallview {
+    .v-parallax{
+      height: 300px !important;
+    }
+    .display-3 {
+      font-size: 3.2em !important;
+    }
+    .display-2{
+      font-size: 2.2em !important;
+      line-height: 1.2em !important;
+    }
+    .display-1{
+      font-size: 1.7em !important;
+    }
+    .headline{
+      font-size: 1.1em !important;
+    }
+    .title{
+      font-size: 1em !important;
+    }
+  }
+}
+
+#menuSmall{
+  position: fixed;
+  top: 62px;
+  z-index: 2;
+  width: 100%;
+  padding: 10px;
+  background: black;
+
+
+  a {
+    padding: 0;
+    margin: 0;
+  }
+  
+  span{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    color: white;
+  }
+}
+
+#nav {
+  font-family: 'Roboto', sans-serif !important;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1em 1em;
+  background: black;
+
+  a {
+    font-size: 1.2em;
+  }
+
+  span{
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;    
+    text-align: right;
+    color: white;
+    margin-right: 1em;
+    @include smallview{
+      display: none;
+    }
+  }
+  
+  .menuBtn{
+    background: white;
+    width: 60px !important;
+    min-width: 60px !important;
+  }
+
+  .material-icons{
+    font-size: 35px !important;
+    color: white !important;
+  }
+
+  .spanMenu{
+    display: none;
+    @include smallview{
+      display: inline-block;
+      float: right;
+      margin-right: 1em;
+    }
+  }
+
+}
+
+#paral-axe{
+  margin-top: 55px;
+  text-align: center !important;
+
+  h1{
+    line-height: 1em !important;
+    padding-bottom: .3em;
+    font-weight: 700;
+  }
+}
+
+#main{
+  margin: 0 1em;
+  
+  a{
+    color: $darkGrey;
+    margin: 0 .2em 0 0;
+  }
+
+  .material-icons{
+    padding-right: .2em;
+  }
+
+  .v-card__text {
+    padding: 10px !important;
+  }
+    
+  .bordered{
+    text-align: center;
+    margin: 1em 2em;
+    padding: 1em;
+    border: 1px solid $lightBrown !important;
+    border-radius: 1em !important;
+  }
+  p {
+    font-size: 1.1em !important;
+    margin-bottom: 1em;
+  }
+  hr{
+    border: 0.5px solid lightgrey;
+  }
+  ul{
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 0.9em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li{
+      margin-bottom:1em;
+      span{
+        font-size:0.8em;
+      }
+    }
+  } 
+}
+
+#content{
+  margin-top: 4.3em;
+
+  .subMenuBar{
+    width: 100%;
+    text-align: center !important;
+    padding: .6em;
+    height: 2.5em;
+    background-color: $darkGrey;
+    color: white;
+    @include smallview{
+      display: none;
+    }
+  }
+  .subMenuin{
+    display: inline;
+    @include smallview{
+      display: none;
+    }
+  }
+  .subMenuBarSm{
+    display: none;
+    @include smallview{
+      width: 100%;
+      align-items: center;
+      display: inline-flex;
+      text-align: center !important;
+      padding: .6em;
+      margin: 1em;
+      color: $darkGrey;
+    }
+    .subButton{
+      padding: 5px 20px;
+      border-radius: 2px;
+      border: 1px solid grey;
+      background-color: white;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 4px 0 rgba(0,0,0,0.19);
+    }
+  }
+
+  .submenusm{
+    margin: auto;
+  }
+
+  .grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+    @include smallview{
+      display: grid;
+      grid-template-columns: auto;
+    }
+  }
+  .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    font-size: 1em;
+    
+  }
+  .backLink{
+    margin: .5em 0em !important;
+    font-weight: 900 !important;
+    color: $rollover !important;
+    &:hover{
+      font-weight: 900 !important;
+      color: #eab92d !important;
+    }
+    @include smallview{
+      font-size: 0.9em !important;
+    }
+  }
+  
+
+  img{
+    width:100%;
+    max-width: 450px;
+  }
+  .oneCol{
+    max-width: 900px !important;
+  }
+  .oneProg{
+    margin: auto;
+    max-width: 920px !important;
+    width: 920px;
+    @include smallview{
+      font-size: 0.9em !important;
+      width: 100%;
+      margin-left: 2em;
+    }
+  }
+  .smallPad{
+    @include smallview{
+      padding-top:2em;
+  }
+}
+  .oneGif{
+    width: 100%;
+    align-items: center;
+  }
+
+  .titled{
+    max-width: 920px;
+     width: 920px;
+    text-align: center !important;
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 30px !important;
+    line-height: 30px !important;
+    @include smallview{
+      width: 100%;
+      text-align: left !important;
+      font-size: 20px !important;
+    line-height: 20px !important;
+    }
+  }
+}
+
+
+#quotes{
+  .testimonial-quote {
+    margin-left: 3em;
+    padding: 2em;
+    font-size: 16px;
+  }
+
+  .testimonial-quote blockquote {
+    /* Negate theme styles */
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    background: none;
+    color: gray;
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    font-style: italic;
+    line-height: 1.4 !important;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px white;
+    z-index: 1;
+    @include smallview{
+      font-size: 1em;
+    }
+
+  }
+
+  .testimonial-quote blockquote * {
+    box-sizing: border-box; 
+  }
+
+  .testimonial-quote blockquote p {
+    color: #75808a; 
+    line-height: 1.4 !important;
+  }
+
+  .testimonial-quote blockquote p:first-child:before {
+    content: '\201C';
+    color: #81bedb;
+    font-size: 7.5em;
+    font-weight: 700;
+    opacity: .3;
+    position: absolute;
+    top: -.4em;
+    left: -.2em;    
+    text-shadow: none;
+    z-index: -300;
+  }
+
+  .testimonial-quote cite {
+    color: gray;
+    display: block;
+    font-size: .8em; 
+  }
+  
+  .testimonial-quote cite span {
+    color: #5e5e5e;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 1px white; 
+  }
+
+  .testimonial-quote {
+    position: relative; 
+  }
+
+  .testimonial-quote .quote-container {
+    padding-left: 0px; 
+  }
+  
+  .testimonial-quote.right .quote-container {
+    padding-left: 0;
+    padding-right: 0px; 
+  }
+
+  .testimonial-quote.right img {
+    left: auto;
+    right: 0;
+  }
+
+  .testimonial-quote.right cite {
+    text-align: right; 
+  }
+}
+
+#portNavigationBar{
+  text-align: right;
+  max-width: 920px;
+  width: 920px;
+  @include smallview{
+    max-width: 450px;
+    width: 450px;
+    text-align: center;
+  }
+
+}
+
+#foot{
+  position: fixed !important;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: right;
+  padding-right: 2em;
+ 
+  span {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .aleft{
+    color: white;
+    padding: .4em 2em;
+    text-align: left !important;
+    justify-content: start !important;
+    @include smallview{
+      display: none;
+    }
+  }
+  .aleftSm{
+    display: none;
+    @include smallview{
+      display: inline-flex;
+      color: white;
+      padding: .4em 2em;
+      text-align: left !important;
+      justify-content: start !important;
+      .material-icons{
+        font-size: 20px !important;
+      }
+    }
+  }
+  .smPowered{
+    @include smallview{
+      display: none;
+    }
+  }
+
+  a:hover .material-icons{
+    color: $rollover !important;
+  }
+}
+
